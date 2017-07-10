@@ -12,6 +12,7 @@ Plugin 'vim-ruby/vim-ruby'
 Plugin 'thoughtbot/vim-rspec'
 Plugin 'nanotech/jellybeans.vim'
 Plugin 'mileszs/ack.vim'
+" Plugin 'Lokaltog/vim-powerline'
 call vundle#end()
 filetype plugin indent on
 
@@ -36,14 +37,16 @@ autocmd VimResized * :wincmd =
 nnoremap <Leader>- :wincmd _<CR>:wincmd \|<CR>
 nnoremap <Leader>= :wincmd =<CR>
 
-nnoremap h <NOP>
-nnoremap j <NOP>
-nnoremap k <NOP>
-nnoremap l <NOP>
+"nnoremap h <NOP>
+"nnoremap j <NOP>
+"nnoremap k <NOP>
+"nnoremap l <NOP>
 nnoremap <Up> <NOP>
 nnoremap <Down> <NOP>
 nnoremap <Left> <NOP>
 nnoremap <Right> <NOP>
+
+let mapleader = "\<Space>"
 
 " Split edit your vimrc. Type space, v, r in sequence to trigger
 nmap <Leader>vr :sp $MYVIMRC<CR>
@@ -58,10 +61,9 @@ imap jj <ESC>
 map <C-s> <esc>:w<CR>
 imap <C-s> <esc>:w<CR>
 map K <Nop>
-# nmap k gk
-# nmap j gj
+nmap k gk
+nmap j gj
 
-let mapleader = "\<Space>"
 
 set number
 set nowrap
