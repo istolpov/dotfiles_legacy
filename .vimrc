@@ -74,7 +74,7 @@ set nofoldenable
 set shiftround
 set list listchars=tab:»·,trail:·
 
-let g:ackprg = 'ag --nogroup --nocolor --column'
+let g:ackprg = 'ag --nogroup --nocolor --column -p ~/.agignore'
 let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
 let g:ctrlp_use_caching = 0
 let g:rspec_command = "call VtrSendCommand('rspec {spec}')"
