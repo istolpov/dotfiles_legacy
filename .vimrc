@@ -12,7 +12,9 @@ Plugin 'vim-ruby/vim-ruby'
 Plugin 'thoughtbot/vim-rspec'
 Plugin 'nanotech/jellybeans.vim'
 Plugin 'mileszs/ack.vim'
-" Plugin 'Lokaltog/vim-powerline'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
+Plugin 'edkolev/tmuxline.vim'
 call vundle#end()
 filetype plugin indent on
 
@@ -49,7 +51,7 @@ nnoremap <Right> <NOP>
 let mapleader = "\<Space>"
 
 " Split edit your vimrc. Type space, v, r in sequence to trigger
-nmap <Leader>vr :sp $MYVIMRC<CR>
+nmap <Leader>vr :vsp $MYVIMRC<CR>
 
 " Source (reload) your vimrc. Type space, s, o in sequence to trigger
 nmap <Leader>so :source $MYVIMRC<CR>
@@ -78,6 +80,7 @@ let g:ackprg = 'ag --nogroup --nocolor --column -p ~/.agignore'
 let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
 let g:ctrlp_use_caching = 0
 let g:rspec_command = "call VtrSendCommand('rspec {spec}')"
+let g:airline_powerline_fonts = 1
 if &term =~ '256color'
     " Disable Background Color Erase (BCE) so that color schemes
     " work properly when Vim is used inside tmux and GNU screen.
