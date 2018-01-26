@@ -1,0 +1,104 @@
+##
+# This is a sane version of Ruby code style
+# defined @ github/bbatsov/ruby-style-guide
+#
+# Direct your questions @ github/wyde19
+# (c) Ilya Stolpovskikh, 2017
+# This is distributed under MIT License
+# Full text is provided at https://opensource.org/licenses/MIT
+#
+
+---
+
+# Always enforce unix-style EOL
+
+Layout/EndOfLine:
+  EnforcedStyle: lf
+
+# Indent stuff inside arguments consistently with normal stuff
+# Defaults also don't help because of greedy column consumption
+#
+# Fairly bad example:
+#
+# some_method(some_other.method.with_stuff.going_on([
+#                                                     some_accessor.to_another
+#                                                           NOT ENOUGH SPACE ^
+
+Layout/AlignParameters:
+  EnforcedStyle: with_fixed_indentation
+
+Layout/AlignHash:
+  EnforcedLastArgumentHashStyle: always_ignore
+
+Layout/IndentArray:
+  EnforcedStyle: consistent
+
+Layout/IndentHash:
+  EnforcedStyle: consistent
+
+# 2.2 is not even supported now
+
+Layout/IndentHeredoc:
+  EnforcedStyle: squiggly
+
+# Let's not make unreasonable indentations, ok?
+
+Layout/MultilineAssignmentLayout:
+  EnforcedStyle: same_line
+
+# Other styles have more issues, so choosing the lesser evil
+
+Layout/MultilineMethodCallIndentation:
+  EnforcedStyle: indented_relative_to_receiver
+
+# In longer binary operations default might be not so explicit
+#
+# Example of default:
+#
+# @some_object.and_its_accessor[:with_attribute].call(:with, :args) ||
+# some_default_value_generator
+
+Layout/MultilineOperationIndentation:
+  EnforcedStyle: indented
+
+# Performance cops are something I'm unsure off, so
+# they will stay by default for now
+
+# See Layout/MultilineAssignmentLayout
+
+Lint/EndAlignment:
+  EnforcedStyleAlignWith: variable
+
+# Disable metrics for block/method length
+# Code should be structured by logic, not by number of lines
+
+Metrics/BlockLength:
+  Enabled: false
+
+Metrics/ClassLength:
+  Enabled: false
+
+Metrics/MethodLength:
+  Enabled: false
+
+Metrics/ModuleLength:
+  Enabled: false
+
+# Alias is unpredictable
+
+Style/Alias:
+  EnforcedStyle: prefer_alias_method
+
+# Backticks for commands are bad because of nesting
+#
+# `echo \`cat foo\``
+# %x(echo `cat foo`)
+
+Style/CommandLiteral:
+  EnforcedStyle: percent_x
+
+# Unambiguous ternary operators are better than ambiguous ones
+
+Style/TernaryParentheses:
+  EnforcedStyle: require_parentheses_when_complex
+
