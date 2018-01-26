@@ -1,0 +1,21 @@
+#!/bin/bash +x
+#
+# remove all files unaccessed for more than week
+# useful for old screenshot cleanup. for example
+
+IFS=$'\n'
+TIME=604800 # week in seconds
+DIRECTORIES="$HOME/Desktop
+$HOME/Downloads"
+
+for d in $DIRECTORIES
+do
+	pushd `echo $d`
+	for f in $(stat -f "%a%t%N" * |awk -F "\t" "(\$1 + $TIME - $(date +'%s')) < 0 { print \$2 }")
+	do
+		echo `pwd`
+		echo $f
+		rm -rf $f
+	done
+	popd
+done
