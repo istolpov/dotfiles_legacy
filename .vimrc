@@ -15,6 +15,8 @@ Plugin 'mileszs/ack.vim'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'edkolev/tmuxline.vim'
+Plugin 'ngmy/vim-rubocop'
+Plugin 'tpope/vim-surround'
 call vundle#end()
 filetype plugin indent on
 
@@ -79,6 +81,7 @@ set list listchars=tab:»·,trail:·
 let g:ackprg = 'ag --nogroup --nocolor --column -p ~/.agignore'
 let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
 let g:ctrlp_use_caching = 0
+let g:ctrlp_working_path_mode = 0
 let g:rspec_command = "call VtrSendCommand('rspec {spec}')"
 let g:airline_powerline_fonts = 1
 if &term =~ '256color'
