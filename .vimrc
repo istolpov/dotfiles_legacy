@@ -26,11 +26,11 @@ augroup myfiletypes
   " Clear old autocmds in group
   autocmd!
   " autoindent with two spaces, always expand tabs
-  autocmd FileType ruby,eruby,yaml setlocal ai sw=2 sts=2 et
-  autocmd FileType ruby,eruby,yaml setlocal path+=lib
-  autocmd FileType ruby,eruby,yaml setlocal colorcolumn=80
+  autocmd FileType ruby,eruby,yaml,json setlocal ai sw=2 sts=2 et
+  autocmd FileType ruby,eruby,yaml,json setlocal path+=lib
+  autocmd FileType ruby,eruby,yaml,json setlocal colorcolumn=80
   " Make ?s part of words
-  autocmd FileType ruby,eruby,yaml setlocal iskeyword+=?
+  autocmd FileType ruby,eruby,yaml,json setlocal iskeyword+=?
 augroup END
 
 colorscheme jellybeans
