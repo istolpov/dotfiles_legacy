@@ -11,6 +11,24 @@
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 ZSH_THEME="bullet-train"
 
+BULLETTRAIN_PROMPT_ORDER=(
+    time
+    status
+#    custom
+    context
+    dir
+#    perl
+    ruby
+#    virtualenv
+#    nvm
+#    aws
+#    go
+#    elixir
+#    git
+#    hg
+    cmd_exec_time
+    )
+
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
 
@@ -64,12 +82,34 @@ source $ZSH/oh-my-zsh.sh
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
 
-# Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
+export EDITOR="vim"
+
+# VI insertion
+export KEYTIMEOUT=100
+bindkey -v
+bindkey "jj" vi-cmd-mode
+
+function zle-keymap-select zle-line-init {
+  if [ "$TERM" = "xterm-256color" ]; then
+    if [ $KEYMAP = vicmd ]; then
+      # the command mode for vi
+      echo -ne "\e[4 q"
+    else
+      # the insert mode for vi
+      echo -ne "\e[2 q"
+    fi
+  fi
+  zle reset-prompt
+  zle -R
+}
+
+function zle-line-finish {
+  echo -ne "\e[2 q"
+}
+
+zle -N zle-keymap-select
+zle -N zle-line-init
+zle -N zle-line-finish
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
