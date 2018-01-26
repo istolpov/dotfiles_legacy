@@ -89,6 +89,12 @@ export KEYTIMEOUT=100
 bindkey -v
 bindkey "jj" vi-cmd-mode
 
+# Some of the emacs-mode tastyness
+bindkey "^[OA" up-line-or-search
+bindkey "^[OB" down-line-or-search
+bindkey "^[[A" up-line-or-search
+bindkey "^[[B" down-line-or-search
+
 function zle-keymap-select zle-line-init {
   if [ "$TERM" = "xterm-256color" ]; then
     if [ $KEYMAP = vicmd ]; then
